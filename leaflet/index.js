@@ -15,11 +15,11 @@ colonies.forEach(colony => {
   var popupContainer = `
     <div>
       <div style="text-align: center">
-        <span style="font-size: 24px"><b>${decodeURIComponent(escape(colony.name))}</b><span>
+        <span style="font-size: 24px"><b>${decodeURIComponent(colony.name)}</b><span>
       </div>
       <div>
         <img src="${colony.imageUrl}"
-             alt="${decodeURIComponent(escape(colony.name))}"
+             alt="${decodeURIComponent(colony.name)}"
              width="256"
              height="128"/>
       </div>
