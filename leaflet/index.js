@@ -9,8 +9,9 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
   accessToken: 'pk.eyJ1IjoiYXNoaW1vc29lZGEiLCJhIjoiY2tkbTZraHpvMGV4eTJybWc2Z2g5emoycSJ9.ZOm4liMJ3QOmSyABKYFEZA'
 }).addTo(mymap);
 
+var colonyListEl = document.getElementById('colony-list');
 
-colonies.forEach(colony => {
+colonies.forEach((colony, index) => {
   var marker = L.marker(colony.latlng).addTo(mymap);
   var popupContainer = `
     <div>
@@ -39,4 +40,16 @@ colonies.forEach(colony => {
     .setContent(popupContainer);
 
   marker.bindPopup(popup);
+
+  var el = document.createElement('div');
+  el.innerHTML = `<span data-index=${index}>${colony.name}</span>`;
+  el.onclick = function (e) {
+    mymap.flyTo(colonies[e.target.dataset.index].latlng, 15, {
+      animate: true,
+      duration: 2,
+      easeLinearity: 0.5
+    });
+  }
+
+  colonyListEl.appendChild(el);
 });

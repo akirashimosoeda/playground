@@ -13,3 +13,12 @@
   border-top-left-radius:  12px;
   border-top-right-radius: 12px;
 }
+
+#colony-list {
+  margin: 8px;
+}
+
+#colony-list span {
+  font-size: 16dp;
+  margin-bottom: 8px;
+}
