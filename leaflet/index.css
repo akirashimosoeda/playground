@@ -1,1 +1,15 @@
 #mapid { height: 512px; }
+
+.leaflet-popup-content-wrapper {
+  padding: 0;
+}
+
+.leaflet-popup-content {
+  margin: 0;
+  width: 256px !important;
+}
+
+.leaflet-popup-content img {
+  border-top-left-radius:  12px;
+  border-top-right-radius: 12px;
+}

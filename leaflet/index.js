@@ -14,19 +14,29 @@ colonies.forEach(colony => {
   var marker = L.marker(colony.latlng).addTo(mymap);
   var popupContainer = `
     <div>
-      <div style="text-align: center">
-        <span style="font-size: 24px"><b>${decodeURIComponent(colony.name)}</b><span>
-      </div>
       <div>
         <img src="${colony.imageUrl}"
              alt="${decodeURIComponent(colony.name)}"
              width="256"
              height="128"/>
       </div>
-      <div style="text-align: right">
-        <input type="button" onclick="location.href='${colony.url}';" value="Ver mas" />
+      <div style="display: flex; justify-content: space-between; padding: 8px;">
+        <div style="flex: auto; display: inline-block;">
+          <span style="font-size: 24px"><b>${decodeURIComponent(colony.name)}</b><span>
+        </div>
+        <div style="flex: auto; display: inline-block;">
+          <input type="button" onclick="location.href='${colony.url}';" value="Ver mas" />
+        </div>
       </div>
     </div>
   `;
-  marker.bindPopup(popupContainer);
+
+  var popupOptions = {
+    closeButton: false
+  };
+
+  var popup = L.popup(popupOptions)
+    .setContent(popupContainer);
+
+  marker.bindPopup(popup);
 });
