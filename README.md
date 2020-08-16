@@ -4,4 +4,4 @@ This is my playground site
 
 ## Projects
 
-- [Leaflet](leaflet/index.html)
+- [Leaflet](https://akirashimosoeda.github.io/playground/leaflet/index.html)
